@@ -1,0 +1,52 @@
+In Tree.py
+
+1. .__init__
+   I suggest that only _link and _unlink change parent and children
+   attributes.  This way there is less chance that the structure will
+   be broken. We only have to make sure that _link and _unlink are correct.
+
+2. ._smallest_leaf_name and .first_leaf 
+   What is the difference? They seem to be identical. Since I don't
+   know which you used i didn't remove. Please get rid of one of them.
+
+3. ._check_height
+   I changed to normal method, which could be overloaded in MetricTree.
+   
+   x._check_height_and_type(y) check types in CombinatorialTree
+     and check types and heights in MetricTree 
+
+   I think it is more elegant and readable.
+
+4. .insert
+   Since all the checks are happening at ._link, I removed them from insert.
+
+5. .copy
+
+   To make things more elegant, I added height argument in CombTree
+   init, which is ignored.
+
+6. .common_ancestor 
+   Does go up from self? We need to discuss.
+
+7. __str__
+   changed pexp...string to str(pexp) which calls __str__ method of pexp
+
+8. .__eq__
+   if both are leaves you have to check names!
+
+9. FromPexp
+   I edited a bit. Not sure, it become better.
+
+MetricTree
+
+10. .__init__
+    see edits. 
+
+11. .is_leaf
+    no need to overload
+
+12. FromDistMatr
+    Why do you multiply by 1 when building T from the first two leaves
+    and elsewhere?
+    Did you check it carefully?
+
